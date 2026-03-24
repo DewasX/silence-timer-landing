@@ -222,6 +222,74 @@ h1 {
   gap: 1rem;
 }
 
+.ios-capture-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.email-form {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.form-text {
+  font-size: 0.85rem !important;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem !important;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-group input {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+  min-width: 0;
+}
+
+.input-group input:focus {
+  border-color: var(--accent-color);
+}
+
+.submit-btn {
+  padding: 0.5rem 1rem;
+  width: auto;
+  font-size: 0.9rem;
+  border-radius: 6px;
+}
+
+.success-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--android-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  background: rgba(61, 220, 132, 0.1);
+  border-radius: 6px;
+  justify-content: center;
+}
+
 .features {
   display: flex;
   flex-wrap: wrap;

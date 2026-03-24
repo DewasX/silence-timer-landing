@@ -1,17 +1,32 @@
 // Add any necessary interactive logic here
 console.log('Silence Timer Landing Page loaded.');
 
-// Optional placeholder for when users click Disabled iOS button
 document.addEventListener('DOMContentLoaded', () => {
-  const iosBtn = document.querySelector('.ios-btn');
-  if (iosBtn) {
+  const iosBtn = document.getElementById('ios-cta');
+  const iosForm = document.getElementById('ios-form');
+  const inputGroup = iosForm?.querySelector('.input-group');
+  const formSuccess = document.getElementById('form-success');
+
+  if (iosBtn && iosForm) {
     iosBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      // Visual feedback that it's disabled
-      iosBtn.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        iosBtn.style.transform = 'scale(1)';
-      }, 150);
+      // Hide the button and show the form
+      iosBtn.classList.add('hidden');
+      iosForm.classList.remove('hidden');
+    });
+    
+    iosForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('ios-email').value;
+      if (email) {
+        // Here you would typically send the email to your backend/Supabase/Mailchimp
+        console.log('Email captured for iOS waitlist:', email);
+        
+        // Show success state
+        inputGroup.classList.add('hidden');
+        iosForm.querySelector('.form-text').classList.add('hidden');
+        formSuccess.classList.remove('hidden');
+      }
     });
   }
 });
