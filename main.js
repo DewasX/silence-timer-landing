@@ -29,4 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // App Screenshot Carousel Logic
+  const carouselImgs = document.querySelectorAll('#mockup-carousel .app-screenshot');
+  if (carouselImgs.length > 1) {
+    let currentIdx = 0;
+    setInterval(() => {
+      carouselImgs[currentIdx].classList.remove('active');
+      currentIdx = (currentIdx + 1) % carouselImgs.length;
+      carouselImgs[currentIdx].classList.add('active');
+    }, 4000); // Change image every 4 seconds
+  }
 });
