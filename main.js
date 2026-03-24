@@ -2,18 +2,11 @@
 console.log('Silence Timer Landing Page loaded.');
 
 document.addEventListener('DOMContentLoaded', () => {
-  const iosBtn = document.getElementById('ios-cta');
   const iosForm = document.getElementById('ios-form');
   const inputGroup = iosForm?.querySelector('.input-group');
   const formSuccess = document.getElementById('form-success');
 
-  if (iosBtn && iosForm) {
-    iosBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      // Hide the button and show the form
-      iosBtn.classList.add('hidden');
-      iosForm.classList.remove('hidden');
-    });
+  if (iosForm) {
     
     iosForm.addEventListener('submit', async (e) => {
       e.preventDefault();
