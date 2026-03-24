@@ -15,17 +15,38 @@ document.addEventListener('DOMContentLoaded', () => {
       iosForm.classList.remove('hidden');
     });
     
-    iosForm.addEventListener('submit', (e) => {
+    iosForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = document.getElementById('ios-email').value;
+      const submitBtn = iosForm.querySelector('.submit-btn');
+      
       if (email) {
-        // Here you would typically send the email to your backend/Supabase/Mailchimp
-        console.log('Email captured for iOS waitlist:', email);
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
         
-        // Show success state
-        inputGroup.classList.add('hidden');
-        iosForm.querySelector('.form-text').classList.add('hidden');
-        formSuccess.classList.remove('hidden');
+        try {
+          const response = await fetch('https://formspree.io/f/mjganeye', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: email })
+          });
+          
+          if (response.ok) {
+            // Show success state
+            inputGroup.classList.add('hidden');
+            iosForm.querySelector('.form-text').classList.add('hidden');
+            formSuccess.classList.remove('hidden');
+          } else {
+            submitBtn.textContent = 'Error';
+            submitBtn.disabled = false;
+          }
+        } catch (error) {
+          submitBtn.textContent = 'Network Error';
+          submitBtn.disabled = false;
+        }
       }
     });
   }
