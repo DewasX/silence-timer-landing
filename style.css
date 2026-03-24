@@ -308,27 +308,7 @@ h1 {
   justify-content: center;
 }
 
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 3rem;
-  border-top: 1px solid var(--border-color);
-  padding-top: 3rem;
-}
-
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-color);
-}
+/* Removed old inline .features styles */
 
 .mockup-container {
   flex: 1;
@@ -358,6 +338,87 @@ h1 {
 
 .phone-frame:hover {
   transform: rotateY(-5deg) rotateX(2deg) scale(1.02);
+}
+
+/* --- Features Section --- */
+.features-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, var(--bg-color) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border-top: 1px solid var(--border-color);
+  position: relative;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.2);
+}
+
+.feature-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.pulse-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.pulse-purple { background: linear-gradient(135deg, #8b5cf6, #5b21b6); }
+.pulse-green { background: linear-gradient(135deg, #10b981, #047857); }
+.pulse-red { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+
+.feature-svg {
+  width: 24px;
+  height: 24px;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 .phone-frame::before {
